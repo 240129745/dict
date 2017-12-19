@@ -15,3 +15,4 @@ then
 fi
 dictfile=/tmp/dict-$1-$$
 lynx -dump $url/$1 |sed 's/\#\[1\]alternate//'|sed '/^$/d'|awk '!/http:/'|tr -s "\n"|tee $dictfile|less
+#over
