@@ -1,0 +1,17 @@
+#!/bin/bash
+#dict.sh
+url=www.dict.cn
+if [[ $# -lt 1 ]]
+then
+	echo "Usage: $0 word"
+	exit 1
+fi
+
+which lynx >/dev/null
+if [[ $? -ne 0 ]]
+then
+	echo "sorry,can not found the lynx,pls install it!!!"
+	exit 1
+fi
+dictfile=/tmp/dict-$1-$$
+lynx -dump $url/$1 |sed 's/\#\[1\]alternate//'|sed '/^$/d'|awk '!/http:/'|tr -s "\n"|tee $dictfile|less
