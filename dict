@@ -1,5 +1,6 @@
 #!/bin/bash
-#dict.sh
+#author:suquan 240129745@qq.com
+#version:v1.0
 #install
 if [  ! -e "/bin/dict" ]
 then
