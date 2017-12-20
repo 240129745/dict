@@ -1,12 +1,17 @@
 #!/bin/bash
 #dict.sh
-url=www.dict.cn
+#install
+if [  ! -e "/bin/dict" ]
+then
+	sudo cp $PWD/dict /bin/dict
+fi
 if [[ $# -lt 1 ]]
 then
 	echo "Usage: $0 word"
 	exit 1
 fi
 
+url=www.dict.cn
 which lynx >/dev/null
 if [[ $? -ne 0 ]]
 then
